@@ -1,3 +1,4 @@
+/*THIS CODE WAS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING CODE WRITTEN BY OTHER STUDENTS OR COPIED FROM ONLINE RESOURCES. Harry He*/
 package assignment1;
 
 public class LinearEquation 
@@ -60,13 +61,21 @@ public class LinearEquation
 		}
 	}
 	
-	public double getX()
+	public double getX() throws Exception
 	{
+		if(this.isSolvable())
+		{
+			throw new Exception("This is unsolvable!");
+		}
 		return ((b * f - e * d)/(c * b - a * d));
 	}
 	
-	public double getY()
+	public double getY() throws Exception
 	{
+		if(this.isSolvable())
+		{
+			throw new Exception("This is unsolvable!");
+		}
 		return ((a * f - e * c)/(a * d - b * c));
 	}
 }
