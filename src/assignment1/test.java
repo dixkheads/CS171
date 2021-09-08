@@ -2,9 +2,9 @@ package assignment1;
 
 public class test 
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
-		LinearEquation sample = new LinearEquation(2, 3, 4, 7, 5, 11);
+		LinearEquation sample = new LinearEquation(2, 3, 4, 6, 5, 11);
 		System.out.println(sample.getA());
 		System.out.println(sample.getB());
 		System.out.println(sample.getC());

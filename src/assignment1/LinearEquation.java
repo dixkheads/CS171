@@ -63,7 +63,7 @@ public class LinearEquation
 	
 	public double getX() throws Exception
 	{
-		if(this.isSolvable())
+		if(!this.isSolvable())
 		{
 			throw new Exception("This is unsolvable!");
 		}
@@ -72,7 +72,7 @@ public class LinearEquation
 	
 	public double getY() throws Exception
 	{
-		if(this.isSolvable())
+		if(!this.isSolvable())
 		{
 			throw new Exception("This is unsolvable!");
 		}
