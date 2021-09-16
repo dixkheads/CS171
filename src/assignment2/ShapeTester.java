@@ -93,7 +93,7 @@ public class ShapeTester {
   // ... Add your code here ... //
 	public static boolean containsCenter(Circle circle1, Circle circle2)
 	{
-		if((circle1.x - circle2.x) * (circle1.x - circle2.x) + (circle1.y - circle2.y) * (circle1.y - circle2.y) < circle1.radius * circle1.radius)
+		if(circle1.containsPoint(circle2.x, circle2.y))
 		{
 			return true;
 		}

@@ -86,7 +86,7 @@ public class Rectangle {
 		{
 			if(another instanceof Rectangle)
 			{
-				if(((Rectangle) another).area() == this.area())
+				if(Math.abs(((Rectangle) another).area() - this.area()) <= 0.0001)
 				{
 					return true;
 				}
