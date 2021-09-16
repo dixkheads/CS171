@@ -1,3 +1,4 @@
+/*THIS CODE WAS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING CODE WRITTEN BY OTHER STUDENTS OR COPIED FROM ONLINE RESOURCES. Harry He*/
 package assignment2;
 
 // This class represents a circle shape
@@ -131,7 +132,7 @@ public class Circle {
     {
     	if(compareCircle instanceof Circle)
     	{
-    		if(Math.abs(this.radius - ((Circle) compareCircle).radius) <= 0.0001)
+    		if(Math.abs(this.radius - ((Circle) compareCircle).radius) < 0.0001)
     		{
     			return true;
     		}

@@ -1,3 +1,4 @@
+/*THIS CODE WAS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING CODE WRITTEN BY OTHER STUDENTS OR COPIED FROM ONLINE RESOURCES. Harry He*/
 package assignment2;
 
 // This class represents a rectangle shape
@@ -86,7 +87,7 @@ public class Rectangle {
 		{
 			if(another instanceof Rectangle)
 			{
-				if(Math.abs(((Rectangle) another).area() - this.area()) <= 0.0001)
+				if(Math.abs(((Rectangle) another).area() - this.area()) < 0.0001)
 				{
 					return true;
 				}
