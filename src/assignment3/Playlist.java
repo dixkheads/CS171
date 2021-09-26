@@ -151,11 +151,18 @@ public class Playlist
    // Delete the first Episode in the Playlist
    public Episode deleteFirst()
    {
-	   Episode ret = head;
-	   head = head.next;
-	   head.prev = null;
-	   size--;
-	   return ret;
+	   if(size > 0)
+	   {
+		   Episode ret = head;
+		   head = head.next;
+		   head.prev = null;
+		   size--;
+		   return ret;
+	   }
+	   else
+	   {
+		   throw new RuntimeException("[Error] Cannot delete episode from an empty Playlist!");
+	   }
      // .. TODO .. //
    }
 
@@ -164,11 +171,18 @@ public class Playlist
    // think of alternative ways to find that last Episode)
    public Episode deleteLast()
    {
-	   Episode ret = end;
-	   end = end.prev;
-	   end.next = null;
-	   size--;
-	   return ret;
+	   if(size > 0)
+	   {
+		   Episode ret = end;
+		   end = end.prev;
+		   end.next = null;
+		   size--;
+		   return ret;
+	   }
+	   else
+	   {
+		   throw new RuntimeException("[Error] Cannot delete episode from an empty Playlist!");
+	   }
      // .. TODO .. //
    }
    // Remove (delete) the Episode that has the given "title"
@@ -176,9 +190,13 @@ public class Playlist
    public Episode deleteEpisode(String title)
    {
 	   Episode current = head;
-	   while(current.getTitle() != title)
+	   while(current != null && current.getTitle() != title)
 	   {
 		   current = current.next;
+	   }
+	   if(current == null)
+	   {
+		   throw new RuntimeException("[Error] The episode requested is not in the list!"); 
 	   }
 	   //System.out.println("head is " + head + " and end is " + end);
 	   if(current.prev != null)
@@ -207,6 +225,10 @@ public class Playlist
    public Episode deleteEveryMthEpisode(int m)
    {
      // .. TODO .. //
+	   if(size < 2)
+	   {
+		   throw new RuntimeException("[Error] The playlist is too small to play around!"); 
+	   }
 	   head.prev = end;
 	   end.next = head;
 	   Episode current = end;
