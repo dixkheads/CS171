@@ -1,5 +1,8 @@
 package randomJunk;
 
+import java.util.ArrayDeque;
+import java.util.Iterator;
+
 public class Test 
 {
 	//example 1 
@@ -67,6 +70,7 @@ public class Test
 	
 	public static void main(String[] args)
 	{
+		/*
 		int[] sample = new int[] {1,1,1,1,1,1,1,1,1,1};
 		int[] sample2 = new int[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 		
@@ -74,6 +78,15 @@ public class Test
 		System.out.println(example2(sample));
 		System.out.println(example3(sample));
 		System.out.println(example4(sample));
-		System.out.println(example5(sample, sample2));
+		System.out.println(example5(sample, sample2));*/
+		ArrayDeque<String> dq = new ArrayDeque<String>();
+		 dq.addFirst("A");
+		 dq.addFirst("B");
+		 dq.addFirst("C");
+		 dq.remove();
+		 dq.add("D");
+		 Iterator<String> itr = dq.iterator();
+		 while (itr.hasNext())
+		    System.out.print(itr.next() + " ");
 	}
 }

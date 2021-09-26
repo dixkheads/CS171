@@ -1,3 +1,5 @@
+package assignment3;
+
 
 // Class Episode represents an individual podcast episode.
 // This is the equivalent of an individual "Node" in our class examples.
