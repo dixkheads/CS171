@@ -1,3 +1,5 @@
+package assignment4;
+
 public class KnightBoard {
 
   // NOTE: Do NOT modify anything in this class. The only

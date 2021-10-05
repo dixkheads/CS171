@@ -1,3 +1,6 @@
+/*THIS CODE WAS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING CODE WRITTEN BY OTHER STUDENTS OR COPIED FROM ONLINE RESOURCES. Harry He*/
+package assignment4;
+
 import java.util.Stack;
 
 // Do you know the chess piece that looks like a horse? It's called a "Knight",
@@ -24,16 +27,66 @@ public class KnightTour {
     * @param n size of the board
     * @return KnightBoard object with a valid Knight Tour
     */
+	public static int[] rotate(int num)
+	{
+		if(num == 0) {return new int[] {-2, 1};}
+		if(num == 1) {return new int[] {-1, 2};}
+		if(num == 2) {return new int[] {1, 2};}
+		if(num == 3) {return new int[] {2, 1};}
+		if(num == 4) {return new int[] {2, -1};}
+		if(num == 5) {return new int[] {1, -2};}
+		if(num == 6) {return new int[] {-1, -2};}
+		if(num == 7) {return new int[] {-2, -1};}
+		System.out.println("shit!");
+		return new int[] {-99, -99};
+	}
+	
     public static KnightBoard tour(int n){
       // Your solution must utilize the stack "candidates" below,
       // to keep track of different possible sequences of Knight moves
       Stack<KnightBoard> candidates = new Stack<KnightBoard>();
+      Stack<Integer> seq = new Stack<Integer>(); 
+      //KnightBoard max = new KnightBoard(n);
       KnightBoard kb = new KnightBoard(n); // create initial board of size n*n
       candidates.push(kb); // push the initial board onto the stack
+      seq.push(0);
+      int maxround = 1;
+      while(!candidates.isEmpty())
+      {
+    	   kb = candidates.peek().copyBoard();
+    	   int tempcurx = kb.getCurrentX();
+    	   int tempcury = kb.getCurrentY();
+    	   int tempseq = seq.peek();
+    	   if(tempseq < 8 && kb.move(tempcurx + rotate(tempseq)[0], tempcury + rotate(tempseq)[1]))
+    	   {
+    		   seq.push(seq.pop() + 1);
+    		   seq.push(0);
+    		   candidates.push(kb);
+    		   maxround++;
+    	   }
+    	   else
+    	   {
+    		   if(seq.peek() < 7)
+    		   {
+    			   seq.push(seq.pop() + 1);
+    		   }
+    		   else
+    		   {
+    			   seq.pop();
+    			   if((n < 5 && maxround >= n * n - 1) || (n >= 5 && maxround >= n * n))
+    			   {
+    				   return candidates.peek();
+    			   }
+    			   maxround--;
+    			   candidates.pop();
+    		   }
+    	   }
+    	  
+      }
 
       // TODO: ...... Add your solution code here ..... //
-
-      return null; //TODO: return a KnightBoard object with a valid Knight Tour
+      
+      return kb; //TODO: return a KnightBoard object with a valid Knight Tour
     }
 
 
